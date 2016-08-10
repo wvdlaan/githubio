@@ -97,23 +97,22 @@
   [data box-nr]
   (let [style (get @data box-nr)]
     (html
-     [:div
-      [:div {:style {:display "flex" :flex-direction "column"}}
-       (mk-combobox data box-nr :justify-content)
-       (mk-combobox data box-nr :align-content)
-       (mk-combobox data box-nr :align-items)
-       [:div {:style {:height "30px"}}]
-       [:div {:style {:display "flex" :flex-direction "row"}}
-        [:div {:style {:width col1-px}}]
-        [:div {:style {:width col2-px :color devcardblue}} "flex-wrap"]]
-       [:div {:style {:display "flex" :flex-direction "row"}}
-        [:div {:style {:width col1-px :color devcardblue}} "flex-direction"]
-        [:div {:style {:width abcde-px}} "wrap"]
-        [:div {:style {:width abcde-px}} "wrap-reverse"]]
-       (mk-row (assoc style :flex-direction "row") true)
-       (mk-row (assoc style :flex-direction "column") false)
-       (mk-row (assoc style :flex-direction "row-reverse") false)
-       (mk-row (assoc style :flex-direction "column-reverse") true)]])))
+     [:div {:style {:display "flex" :flex-direction "column"}}
+      (mk-combobox data box-nr :justify-content)
+      (mk-combobox data box-nr :align-content)
+      (mk-combobox data box-nr :align-items)
+      [:div {:style {:height "30px"}}]
+      [:div {:style {:display "flex" :flex-direction "row"}}
+       [:div {:style {:width col1-px}}]
+       [:div {:style {:width col2-px :color devcardblue}} "flex-wrap"]]
+      [:div {:style {:display "flex" :flex-direction "row"}}
+       [:div {:style {:width col1-px :color devcardblue}} "flex-direction"]
+       [:div {:style {:width abcde-px}} "wrap"]
+       [:div {:style {:width abcde-px}} "wrap-reverse"]]
+      (mk-row (assoc style :flex-direction "row") true)
+      (mk-row (assoc style :flex-direction "column") false)
+      (mk-row (assoc style :flex-direction "row-reverse") false)
+      (mk-row (assoc style :flex-direction "column-reverse") true)])))
 
 (defonce state
   (atom
