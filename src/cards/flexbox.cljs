@@ -66,13 +66,14 @@
 (defn abcde
   [style bgc]
   (html
-   [:div {:style (assoc style
-                        :background-color bgc
-                        :display "flex"
-                        :height abcde-px
-                        :margin "1px"
-                        :width abcde-px)}
-    (map letter "AbCdE")]))
+   (into
+    [:div {:style (assoc style
+                         :background-color bgc
+                         :display "flex"
+                         :height abcde-px
+                         :margin "1px"
+                         :width abcde-px)}]
+    (map letter "AbCdE"))))
 
 (defn mk-combobox
   [data box-nr k]
@@ -80,10 +81,11 @@
    [:div {:style {:display "flex" :flex-direction "row"}}
     [:div {:style {:width col1-px :color devcardblue}} (name k)]
     [:div {:style {:width col2-px}}
-     [:select
-      {:on-change (fn [e] (swap! data assoc-in [box-nr k] (.. e -target -value)))
-       :value (get-in @data [box-nr k])}
-      (map (fn [o] [:option o]) (get options k))]]]))
+     (into
+      [:select
+       {:on-change (fn [e] (swap! data assoc-in [box-nr k] (.. e -target -value)))
+        :value (get-in @data [box-nr k])}]
+      (map (fn [o] [:option o]) (get options k)))]]))
 
 (defn mk-row
   [{:keys [flex-direction] :as style} bool]
@@ -156,4 +158,12 @@ Note how the block colors highlight 90 degree turns, eg;
 * row wrap
 * column wrap-reverse
 * row-reverse wrap-reverse
-* column-reverse wrap")
+* column-reverse wrap
+")
+
+(defcard about
+  "
+This page uses [devcards](https://github.com/bhauman/devcards).
+The source of these devcards is available
+[here](https://github.com/wvdlaan/githubio/blob/master/src/cards/flexbox.cljs).
+")

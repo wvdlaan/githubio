@@ -35,14 +35,6 @@
                                     :output-to  "resources/public/js/compiled/devcards.js"
                                     :output-dir "resources/public/js/compiled/devcards_out"
                                     :source-map-timestamp true }}
-                       {:id "dev"
-                        :source-paths ["src"]
-                        :figwheel true
-                        :compiler {:main       "cards.index"
-                                   :asset-path "js/compiled/out"
-                                   :output-to  "resources/public/js/compiled/dev.js"
-                                   :output-dir "resources/public/js/compiled/out"
-                                   :source-map-timestamp true }}
                        {:id "hostedcards"
                         :source-paths ["src"]
                         :compiler {:devcards   true
